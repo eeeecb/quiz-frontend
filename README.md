@@ -18,3 +18,7 @@ Este projeto foi desenvolvido usando React e Vite para criar um questionário qu
 - Preencha seu nome e matrícula.
 - Responda às questões do questionário.
 - Você verá o feedback sobre suas respostas.
+
+## Autor
+
+- **Eduardo Barbosa** - [GitHub](https://github.com/eeeecb) - 2324290087
