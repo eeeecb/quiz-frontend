@@ -7,6 +7,7 @@ Este projeto foi desenvolvido usando React e Vite para criar um questionário qu
 - React
 - Vite
 - Tailwind CSS
+- Lucide React
 
 ## Como Rodar o Projeto
 1. Clone o repositório.
