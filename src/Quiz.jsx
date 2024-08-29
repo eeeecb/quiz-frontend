@@ -85,7 +85,7 @@ const Quiz = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 text-white-input"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 text-input"
           />
         </div>
         <div className="mb-6">
@@ -101,7 +101,7 @@ const Quiz = () => {
             value={matricula}
             onChange={(e) => setMatricula(e.target.value)}
             required
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 text-white-input"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 text-input"
           />
         </div>
         {questions.map((q) => (
