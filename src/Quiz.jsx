@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { AlertCircle, CheckCircle } from "lucide-react";
 
-const Quiz = () => {
-  const [name, setName] = useState("");
-  const [matricula, setMatricula] = useState("");
+const Quiz = ({ user }) => {
   const [answers, setAnswers] = useState({});
+  const [submitted, setSubmitted] = useState(false);
 
   const questions = [
     {
@@ -66,44 +65,19 @@ const Quiz = () => {
     });
   };
 
+  const handleSubmit = () => {
+    setSubmitted(true);
+  };
+
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <div className="max-w-2xl w-full p-6 bg-white rounded-lg shadow-md">
         <h1 className="text-3xl font-bold mb-6 text-center text-blue-600">
           Questionário de Construção de Frontend
         </h1>
-        <div className="mb-4">
-          <label
-            htmlFor="name"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Nome
-          </label>
-          <input
-            type="text"
-            id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 text-input"
-          />
-        </div>
-        <div className="mb-6">
-          <label
-            htmlFor="matricula"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Matrícula
-          </label>
-          <input
-            type="text"
-            id="matricula"
-            value={matricula}
-            onChange={(e) => setMatricula(e.target.value)}
-            required
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 text-input"
-          />
-        </div>
+        <p className="text-lg mb-4">
+          Bem-vindo(a), {user.nome} - {user.matricula}!
+        </p>
         {questions.map((q) => (
           <div key={q.id} className="mb-6">
             <p className="font-medium text-lg mb-2">{q.question}</p>
@@ -120,7 +94,8 @@ const Quiz = () => {
                       className="mr-2"
                     />
                     <label htmlFor={`q${q.id}-${index}`}>{option}</label>
-                    {answers[q.id] !== undefined &&
+                    {submitted &&
+                      answers[q.id] !== undefined &&
                       index === answers[q.id] &&
                       (index === q.correctAnswer ? (
                         <CheckCircle className="ml-2 text-green-500" />
@@ -133,6 +108,12 @@ const Quiz = () => {
             )}
           </div>
         ))}
+        <button
+          onClick={handleSubmit}
+          className="w-full bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 text-lg"
+        >
+          Enviar Respostas
+        </button>
       </div>
     </div>
   );
